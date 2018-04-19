@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./src/assets/fonts/iconfont.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>jsj</title>
+    <script>
+      (function (doc, win) {
+        let docEl = doc.documentElement
+        let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+        let recalc = function () {
+          let clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if(clientWidth>=640){
+              docEl.style.fontSize = '100px'
+          }else{
+              docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+          }
+        }
+ 
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false)
+        doc.addEventListener('DOMContentLoaded', recalc, false)
+      })(document, window)
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
